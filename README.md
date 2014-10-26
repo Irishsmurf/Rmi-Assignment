@@ -1,4 +1,5 @@
-vac -cp .:jfxrt.jar com/paddez/distro/*.java
+javac -cp .:jfxrt.jar com/paddez/distro/*.java
+
 wsgen -verbose -cp . com.paddez.distro.Clinic
 
 (then run the ClinicPublisher)
