@@ -14,13 +14,16 @@ java_binary(
   name='clinic_ui',
   srcs=['UI/RmiClientUI.java'],
   main_class='UI.RmiClientUI',
+  jvm_flags=[
+    '-Djava.security.policy=no.policy',
+  ],
   deps=[
     '//src:auth_service',
     '//src:day',
     '//src:time',
     '//src:clinic',
     '@javafx//jar'
-  ]
+  ],
 )
 
 java_library(
