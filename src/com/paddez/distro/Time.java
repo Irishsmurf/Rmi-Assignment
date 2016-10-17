@@ -1,5 +1,7 @@
 package com.paddez.distro;
+
 import java.util.*;
+
 public class Time implements Comparable
 {
 	private final int TOTAL = 1439;
@@ -20,7 +22,7 @@ public class Time implements Comparable
 		if(this.minute == time.getTotalMinutes()) return EQUAL;
 
 		return BEFORE;
-	} 
+	}
 
 	public Time(int hour, int minute)
 	{
@@ -56,4 +58,4 @@ public class Time implements Comparable
 	{
 		return minute;
 	}
-} 
+}

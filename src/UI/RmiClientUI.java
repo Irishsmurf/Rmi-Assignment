@@ -1,3 +1,5 @@
+package UI;
+
 import Clinic.*;
 import Clinic.Clinic;
 import com.paddez.distro.AuthService;
@@ -31,22 +33,22 @@ import javax.xml.ws.Service;
 import java.net.URL;
 
 class RmiClient
-{ 
+{
     // "obj" is the reference of the remote object
 
-    private Clinic obj = null; 
+    private Clinic obj = null;
 
     //Challange the Clinic to see ifs running.
     public boolean connectable()
     {
-        try{    
+        try{
             System.out.println(obj.connectable() + " loop");
             return obj.connectable();
         }
         catch(Exception e)
         {
             e.printStackTrace();
-            return false;        
+            return false;
         }
     }
 
@@ -57,16 +59,16 @@ class RmiClient
 
     //Return a string containing the Information of the passed arguements. (Returns Appointment Type.)
     public String getInfo(int hour, int minute, int day)
-    {        
+    {
         try{
             return obj.getInfo(hour, minute, day);
         } catch (Exception e)
         {
-            System.err.println("RmiClient exception: " + e); 
-            e.printStackTrace(); 
+            System.err.println("RmiClient exception: " + e);
+            e.printStackTrace();
         }
 
-        return null;  
+        return null;
     }
 
 
@@ -116,8 +118,8 @@ class RmiClient
         try{
             return obj.addAppointment(type, hour, minute, day, name);
         } catch (Exception e){
-            System.err.println("RmiClient exception: " + e); 
-            e.printStackTrace(); 
+            System.err.println("RmiClient exception: " + e);
+            e.printStackTrace();
         }
 
         return false;
@@ -128,8 +130,8 @@ class RmiClient
         try{
             return obj.isAvailable(hour, minute, day);
         } catch (Exception e){
-            System.err.println("RmiClient exception: " + e); 
-            e.printStackTrace(); 
+            System.err.println("RmiClient exception: " + e);
+            e.printStackTrace();
         }
         return false;
     }
@@ -201,7 +203,7 @@ public class RmiClientUI extends Application
         Label user = new Label("User Name");
         grid.add(user, 0, 1);
 
-        final TextField userTF = new TextField(); 
+        final TextField userTF = new TextField();
         grid.add(userTF, 1, 1);
 
         Label pw = new Label("Password");
@@ -354,7 +356,7 @@ public class RmiClientUI extends Application
     public void openCancelScreen(final Stage primaryStage)
     {
         Scene scene = new Scene(new VBox(), 400, 500);
-        final ChoiceBox<String> cb = new ChoiceBox<String>(FXCollections.observableArrayList("09:00", "09:30", "10:00", "10:30", "11:00", "11:30", 
+        final ChoiceBox<String> cb = new ChoiceBox<String>(FXCollections.observableArrayList("09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
                                                                             "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00",
                                                                             "15:30", "16:00", "16:30"));
         final ChoiceBox<String> day = new ChoiceBox<String>(FXCollections.observableArrayList("Monday", "Tuesday", "Wednesday", "Thursday", "Friday"));
@@ -453,7 +455,7 @@ public class RmiClientUI extends Application
     public void openAddScreen(final Stage primaryStage)
     {
         Scene scene = new Scene(new VBox(), 400, 500);
-        final ChoiceBox<String> cb = new ChoiceBox<String>(FXCollections.observableArrayList("09:00", "09:30", "10:00", "10:30", "11:00", "11:30", 
+        final ChoiceBox<String> cb = new ChoiceBox<String>(FXCollections.observableArrayList("09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
                                                                             "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00",
                                                                             "15:30", "16:00", "16:30"));
         final ChoiceBox<String> type = new ChoiceBox<String>(FXCollections.observableArrayList("Consultation", "Minor-Surgical"));
@@ -533,7 +535,7 @@ public class RmiClientUI extends Application
 
         primaryStage.setScene(scene);
         primaryStage.show();
-            
+
 
 
     }
@@ -541,7 +543,7 @@ public class RmiClientUI extends Application
     public void openCheckScreen(final Stage primaryStage)
     {
         Scene scene = new Scene(new VBox(), 400, 500);
-        final ChoiceBox<String> cb = new ChoiceBox<String>(FXCollections.observableArrayList("09:00", "09:30", "10:00", "10:30", "11:00", "11:30", 
+        final ChoiceBox<String> cb = new ChoiceBox<String>(FXCollections.observableArrayList("09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
                                                                             "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00",
                                                                             "15:30", "16:00", "16:30"));
         final ChoiceBox<String> type = new ChoiceBox<String>(FXCollections.observableArrayList("Consultation", "Minor-Surgical"));
@@ -639,7 +641,7 @@ public class RmiClientUI extends Application
 
 
     }
-    
+
 
 
     public static void main(String args[]) throws Exception
@@ -649,7 +651,7 @@ public class RmiClientUI extends Application
 
         if (System.getSecurityManager() == null) {
             System.setSecurityManager(new RMISecurityManager());
-        } 
+        }
 
         launch(args);
     }

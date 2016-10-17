@@ -1,0 +1,123 @@
+java_binary(
+  name='clinic_pub',
+  srcs=[
+    'com/paddez/distro/ClinicPublisher.java',
+  ],
+  main_class='com.paddez.distro.ClinicPublisher',
+  deps=[
+    '//src:rmi_clinic_class',
+    '@javafx//jar'
+  ]
+)
+
+java_binary(
+  name='clinic_ui',
+  srcs=['UI/RmiClientUI.java'],
+  main_class='UI.RmiClientUI',
+  deps=[
+    '//src:auth_service',
+    '//src:day',
+    '//src:time',
+    '//src:clinic',
+    '@javafx//jar'
+  ]
+)
+
+java_library(
+  name='clinic',
+  srcs=[
+    'UI/Clinic/AddAppointment.java',
+    'UI/Clinic/AddAppointmentResponse.java',
+    'UI/Clinic/CancelAppointment.java',
+    'UI/Clinic/CancelAppointmentResponse.java',
+    'UI/Clinic/Clinic.java',
+    'UI/Clinic/ClinicService.java',
+    'UI/Clinic/Connectable.java',
+    'UI/Clinic/ConnectableResponse.java',
+    'UI/Clinic/GetAppointments.java',
+    'UI/Clinic/GetAppointmentsResponse.java',
+    'UI/Clinic/GetInfo.java',
+    'UI/Clinic/GetInfoResponse.java',
+    'UI/Clinic/IsAvailable.java',
+    'UI/Clinic/IsAvailableResponse.java',
+    'UI/Clinic/ObjectFactory.java',
+  ]
+)
+
+java_library(
+  name='rmi_clinic_class',
+  srcs=['com/paddez/distro/Clinic.java'],
+  deps=[
+    ':rmi_clinic',
+    '@javafx//jar'
+  ]
+)
+
+java_library(
+  name='appointment_book',
+  srcs=[
+    'com/paddez/distro/AppointmentBook.java'
+  ],
+  deps=[
+    '//src:slot',
+    '//src:day',
+    '//src:procedure',
+    '//src:time'
+  ]
+)
+
+java_library(
+  name='rmi_clinic',
+  srcs=[
+    'com/paddez/distro/RmiClientUI.java',
+    'com/paddez/distro/RmiClinic.java',
+    'com/paddez/distro/RmiClinicInf.java',
+    'com/paddez/distro/RmiClinicService.java'
+  ],
+  deps=[
+    ':time',
+    ':auth_service',
+    ':day'
+  ]
+)
+
+java_library(
+  name='day',
+  srcs=['com/paddez/distro/Day.java'],
+  deps=[
+    '//src:slot',
+    '//src:procedure',
+    '//src:time'
+  ]
+)
+
+java_library(
+  name='slot',
+  srcs=[
+    'com/paddez/distro/Slot.java',
+  ],
+  deps=[
+    '//src:time'
+  ]
+)
+
+java_library(
+  name='procedure',
+  srcs=[
+    'com/paddez/distro/Procedure.java'
+  ],
+  deps=[
+    '//src:slot',
+    '//src:time'
+  ]
+)
+
+java_library(
+  name='time',
+  srcs=['com/paddez/distro/Time.java'],
+)
+
+java_library(
+  name='auth_service',
+  srcs=['com/paddez/distro/AuthService.java'],
+)

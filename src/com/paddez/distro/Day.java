@@ -1,5 +1,8 @@
 package com.paddez.distro;
 
+import com.paddez.distro.Slot;
+import com.paddez.distro.Procedure;
+
 import java.util.*;
 
 public class Day implements Comparable
@@ -87,7 +90,6 @@ public class Day implements Comparable
 		return this.day == d.getDay();
 	}
 
-
 	@Override
 	public int compareTo(Object obj)
 	{
@@ -171,8 +173,8 @@ public class Day implements Comparable
 		ListIterator<Slot> it = slots.listIterator();
 		Slot tmp;
 		while(it.hasNext()) //Iterate through the list
-		{				
-			tmp = it.next(); 
+		{
+			tmp = it.next();
 			if(tmp.getTime().compareTo(t) == 0 && !tmp.isBusy())
 			{
 				//One slot, not busy. Has room.
@@ -224,7 +226,7 @@ public class Day implements Comparable
 						it.set(new_p);
 						return true;
 					}
-					return false;					
+					return false;
 
 				}
 				return false;
@@ -273,4 +275,4 @@ public class Day implements Comparable
 	{
 		return day;
 	}
-} 
+}

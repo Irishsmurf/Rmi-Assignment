@@ -1,6 +1,7 @@
 package com.paddez.distro;
 
 import javax.xml.ws.Endpoint;
+import com.paddez.distro.Clinic;
 
 public class ClinicPublisher
 {
